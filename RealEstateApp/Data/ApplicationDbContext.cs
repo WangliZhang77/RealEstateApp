@@ -13,5 +13,8 @@ namespace RealEstateApp.Data
 
         }
         public DbSet<ListingCase> ListingCases { get; set; }
+        public DbSet<Agent>Agents { get; set; } 
+
+        public DbSet<CaseContact>caseContacts { get; set; } 
     }
 }

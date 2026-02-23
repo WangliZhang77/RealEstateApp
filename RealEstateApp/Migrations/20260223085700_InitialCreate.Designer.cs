@@ -12,8 +12,8 @@ using RealEstateApp.Data;
 namespace RealEstateApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260220051814_ExpandListingCaseColumns")]
-    partial class ExpandListingCaseColumns
+    [Migration("20260223085700_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,30 @@ namespace RealEstateApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("RealEstateApp.Models.Agent", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("AgentFirstname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("AgentLastname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("AvatarUrl")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Agents");
+                });
 
             modelBuilder.Entity("RealEstateApp.Models.ListingCase", b =>
                 {
