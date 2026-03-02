@@ -39,6 +39,8 @@ namespace RealEstateApp.Models
         public SaleCategory SaleCategory { get; set; }
         public ListingCaseStatus ListingCaseStatus { get; set; }
         public string UserId { get; set; }
+        public string? PhotographyCompanyId { get; set; }
+        public PhotographyCompany? PhotographyCompany { get; set; }
 
     }
     public enum PropertyType
